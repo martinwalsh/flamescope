@@ -61,6 +61,8 @@ module.exports = {
   },
   plugins: [
     new webpack.EnvironmentPlugin(['NODE_ENV']),
+    new webpack.EnvironmentPlugin(['SPEEDSCOPE_URL']),
+    new webpack.EnvironmentPlugin(['STATIC_PROFILES_PATH']),
     new webpack.LoaderOptionsPlugin({
       options: {
         eslint: {

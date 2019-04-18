@@ -15,3 +15,6 @@ services:
     working_dir: /src
     volumes:
       - './:/src'
+    environment:
+      SPEEDSCOPE_URL: http://localhost:5000
+      STATIC_PROFILES_PATH: static/profiler

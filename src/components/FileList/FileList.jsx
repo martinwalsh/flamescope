@@ -70,6 +70,10 @@ class FileList extends Component {
         this.props.history.push(`/heatmap/${type}/${path}`)
     }
 
+    handleSpeedScope(path) {
+      window.open(`${process.env.SPEEDSCOPE_URL}/#profileURL=${process.env.SPEEDSCOPE_URL}/${process.env.STATIC_PROFILES_PATH}/${path}`, '_blank')
+    }
+
     render() {
         const self = this
         
@@ -83,6 +87,7 @@ class FileList extends Component {
                     <Table.Row textAlign='center'>
                         <Table.HeaderCell>Profile</Table.HeaderCell>
                         <Table.HeaderCell>Actions</Table.HeaderCell>
+                        <Table.HeaderCell>SpeedScope</Table.HeaderCell>
                     </Table.Row>
                     </Table.Header>
                     <Table.Body>
@@ -106,6 +111,11 @@ class FileList extends Component {
                                             })}
                                         </Dropdown.Menu>
                                     </Dropdown>
+                                </Button.Group>
+                                </Table.Cell>
+                                <Table.Cell textAlign='center'>
+                                <Button.Group color='teal'>
+                                    <Button onClick={() => {self.handleSpeedScope(path)}}>Open in SpeedScope</Button>
                                 </Button.Group>
                                 </Table.Cell>
                             </Table.Row>
