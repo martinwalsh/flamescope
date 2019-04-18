@@ -1,0 +1,17 @@
+version: '3'
+services:
+  build:
+    build:
+      context: './'
+      dockerfile: Dockerfile.compose
+    ports:
+      - '5000:5000'
+    volumes:
+      - './:/src'
+      - './examples:/profiles:ro'
+  package:
+    image: node:8
+    command: bash -c "yarn install && npm run webpack"
+    working_dir: /src
+    volumes:
+      - './:/src'
