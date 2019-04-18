@@ -30,7 +30,7 @@ def get_profile_list():
     for root, dirs, files in walk(join(config.PROFILE_DIR)):
         start = root[len(config.PROFILE_DIR) + 1:]
         for f in files:
-            if not f.startswith('.'):
+            if not f.startswith('.') and f.endswith('.stacks'):
                 filename = join(start, f)
                 file_path = join(config.PROFILE_DIR, filename)
                 file_type = get_profile_type(file_path)
